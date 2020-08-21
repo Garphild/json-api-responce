@@ -1,0 +1,12 @@
+
+
+Code Coverage Report:     
+  2020-08-21 14:10:42     
+                          
+ Summary:                 
+  Classes: 100.00% (1/1)  
+  Methods: 100.00% (7/7)  
+  Lines:   100.00% (36/36)
+
+MainTest
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 36/ 36)

@@ -1,0 +1,23 @@
+{
+    "name": "garphild/json-api-response",
+    "description": "Response interface for common json api",
+    "license": "MIT",
+    "version": "1.0.0",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Serhii Kondrashov",
+            "email": "garphild28@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-json": "*",
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Garphild\\JsonApiResponse\\": "src/"
+        }
+    }
+}
