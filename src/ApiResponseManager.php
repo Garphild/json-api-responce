@@ -83,6 +83,14 @@ class ApiResponseManager {
     $this->body = $responseModel;
   }
 
+  function setStatusCode($code) {
+    $this->body->setResponseStatus($code);
+  }
+
+  function getStatusCode() {
+    $this->body->getResponseStatus();
+  }
+
   /**
    * Send forbidden response.
    * @param bool $final If set true headers will be send with immediate process exit.
