@@ -186,4 +186,9 @@ class DefaultResponseModel implements IResponseModel {
     $this->payload = [];
     return $this;
   }
+
+  function addError($error) {
+    $this->errors[] = $error;
+    return $this;
+  }
 }

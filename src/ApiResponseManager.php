@@ -85,10 +85,16 @@ class ApiResponseManager {
 
   function setStatusCode($code) {
     $this->body->setResponseStatus($code);
+    return $this;
   }
 
   function getStatusCode() {
     $this->body->getResponseStatus();
+  }
+
+  function addError($err) {
+    $this->body->addError($err);
+    return $this;
   }
 
   /**
