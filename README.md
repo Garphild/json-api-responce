@@ -20,7 +20,7 @@ Can be multiple managers, but why?
 class AnotherResponseModel implements \Garphild\ApiResponse\IResponseModel {
   ...
 }
-$manager = \Garphild\ApiResponse\Response::instance();
+$manager = \Garphild\ApiResponse\ApiResponseManager::instance();
 $manager->changeResponseModel(new AnotherResponseModel());
 ```
 

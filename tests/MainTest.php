@@ -2,7 +2,7 @@
 
 require("../vendor/autoload.php");
 
-use Garphild\JsonApiResponse\Response;
+use Garphild\JsonApiResponse\ApiResponseManager;
 use PHPUnit\Framework\TestCase;
 
 class MainTest extends TestCase {
@@ -11,7 +11,7 @@ class MainTest extends TestCase {
   function setUp(): void
   {
     parent::setUp();
-    $this->defaultResponse = Response::instance();
+    $this->defaultResponse = ApiResponseManager::instance();
   }
 
   public function testGetEmptyValue()
@@ -63,5 +63,37 @@ class MainTest extends TestCase {
     $this->expectOutputString('{"status":200,"data":{"test":{"nested":1}},"errors":[]}');
     $this->defaultResponse->send();
     $this->assertEquals(200, http_response_code());
+  }
+
+  public function testRemoveNestedFields()
+  {
+    $path = "test.section.subsection";
+    $expectedArray = [
+      'status' => 200,
+      'data' => [
+        'test' => [
+          'section' => []
+        ]
+      ],
+      'errors' => [],
+    ];
+    $data = $this->defaultResponse->getField($path);
+    $this->assertEquals(null, $data);
+    $this->defaultResponse->setField($path, 1);
+    $data = $this->defaultResponse->getField($path);
+    $this->assertEquals(1, $data);
+    $this->assertTrue($this->defaultResponse->haveField($path));
+    $data = $this->defaultResponse->removeField($path)->getData();
+    $this->assertEquals($expectedArray, $data);
+    $data = $this->defaultResponse->removeField("test")->getData();
+    $expectedArray = [
+      'status' => 200,
+      'data' => [],
+      'errors' => [],
+    ];
+    $this->assertEquals($expectedArray, $data);
+    $data = $this->defaultResponse->getField($path);
+    $this->assertEquals(null, $data);
+    $this->assertFalse($this->defaultResponse->haveField($path));
   }
 }
