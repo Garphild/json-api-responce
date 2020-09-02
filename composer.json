@@ -2,7 +2,7 @@
     "name": "garphild\/json-api-response",
     "description": "Response interface for common json api",
     "license": "MIT",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "type": "library",
     "authors": [
         {
