@@ -1,8 +1,8 @@
 {
-    "name": "garphild/json-api-response",
+    "name": "garphild\/json-api-response",
     "description": "Response interface for common json api",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "type": "library",
     "authors": [
         {
@@ -13,11 +13,11 @@
     "minimum-stability": "stable",
     "require": {
         "ext-json": "*",
-        "phpunit/phpunit": "^9.3"
+        "phpunit\/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
-            "Garphild\\JsonApiResponse\\": "src/"
+            "Garphild\\JsonApiResponse\\": "src\/"
         }
     }
 }
